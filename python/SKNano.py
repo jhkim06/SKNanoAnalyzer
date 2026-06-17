@@ -431,6 +431,10 @@ def makeHaddJobs(working_dir,argparser,sample):
     template_path = os.path.join(SKNANO_HOME, "templates", "hadd.sh")
     with open(template_path, 'r') as f:
         hadd_content = f.read()
+    singularity_image = os.environ["SINGULARITY_IMAGE"]
+    mamba_root_prefix = "/opt/conda" if singularity_image else os.environ['MAMBA_ROOT_PREFIX']
+    hadd_content = hadd_content.replace("[MAMBA_BIN_PATH]", os.path.join(mamba_root_prefix, "bin"))
+    hadd_content = hadd_content.replace("[MAMBA_ROOT_PREFIX]", mamba_root_prefix)
     hadd_content = hadd_content.replace("[WORKDIR]", working_dir)
     hadd_content = hadd_content.replace("[TARGET]", hadd_target)
     with open(os.path.join(working_dir,"hadd.sh"),'w') as f:

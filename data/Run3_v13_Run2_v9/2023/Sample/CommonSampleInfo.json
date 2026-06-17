@@ -723,5 +723,15 @@
         "sumsign": 1663024.0,
         "sumW": 1663024.0,
         "ref": "XSDB"
+    },
+    "Run3_L_500TeV_ctau_100cm_EXONanoAOD_20k": {
+        "isMC": 1,
+        "PD": "Run3_L_500TeV_ctau_100cm_EXONanoAOD_20k",
+        "xsec_formula": "1.0",
+        "xsec": 1.0,
+        "nmc": 199000.0,
+        "sumsign": 199000.0,
+        "sumW": 199000.0,
+        "ref": "local EXONanoAOD test sample; metadata placeholder for HLTBranchCheck"
     }
 }

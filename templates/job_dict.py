@@ -1,11 +1,10 @@
 import os
-SINGULARITY_IMAGE = os.environ['SINGULARITY_IMAGE']
+SINGULARITY_IMAGE = os.environ.get('SINGULARITY_IMAGE', '').strip()
 
 main_job = {
     'universe': "vanilla",
     'executable': "run.sh",
     'JobBatchName': "batchname", 
-    '+singularityimage': f'"{SINGULARITY_IMAGE}"',
     'RequestMemory': f'2000 MB', # 2 times of memory usage
     'RequestCpus': 1,
     'arguments': "$(Process)",
@@ -22,7 +21,6 @@ hadd_job = {
     'universe': "vanilla",
     'executable': "hadd.sh",
     'JobBatchName': "batchname",
-    '+singularityimage': f'"{SINGULARITY_IMAGE}"',
     'RequestCpus': 8,
     'RequestMemory': '16384 MB',
     'output': "hadd.out",
@@ -31,6 +29,10 @@ hadd_job = {
     'when_to_transfer_output': "ON_EXIT_OR_EVICT",
     'periodic_release': '(NumJobStarts < 3) && (HoldReasonCode == 34 || HoldReasonCode == 21) && (JobStatus == 5)' # periodic release for 3 times // Held reason is lack of memeory // JobStatus is Hold // https://research.cs.wisc.edu/htcondor/manual/v8.5/12_Appendix_A.html
 }
+
+if SINGULARITY_IMAGE:
+    main_job['+singularityimage'] = f'"{SINGULARITY_IMAGE}"'
+    hadd_job['+singularityimage'] = f'"{SINGULARITY_IMAGE}"'
 
 final_job = {
     'universe': "vanilla",
