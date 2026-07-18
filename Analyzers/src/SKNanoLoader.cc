@@ -132,6 +132,9 @@ void SKNanoLoader::SetMaxLeafSize(){
     GenPart_phi.resize(kMaxGenPart);
     GenPart_pt.resize(kMaxGenPart);
     GenPart_status.resize(kMaxGenPart);
+    GenPart_vx.resize(kMaxGenPart);
+    GenPart_vy.resize(kMaxGenPart);
+    GenPart_vz.resize(kMaxGenPart);
     GenPart_genPartIdxMother.resize(kMaxGenPart);
     GenPart_statusFlags.resize(kMaxGenPart);
     GenPart_genPartIdxMother_RunII.resize(kMaxGenPart);
@@ -725,6 +728,9 @@ void SKNanoLoader::Init() {
     SafeSetBranchAddress("GenPart_phi", GenPart_phi.data());
     SafeSetBranchAddress("GenPart_pt", GenPart_pt.data());
     SafeSetBranchAddress("GenPart_status", GenPart_status.data());
+    SafeSetBranchAddress("GenPart_vx", GenPart_vx.data());
+    SafeSetBranchAddress("GenPart_vy", GenPart_vy.data());
+    SafeSetBranchAddress("GenPart_vz", GenPart_vz.data());
     if(Run == 3) {
         SafeSetBranchAddress("GenPart_genPartIdxMother", GenPart_genPartIdxMother.data());
         SafeSetBranchAddress("GenPart_statusFlags", GenPart_statusFlags.data());

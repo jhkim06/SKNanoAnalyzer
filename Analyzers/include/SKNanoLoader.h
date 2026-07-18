@@ -113,6 +113,9 @@ public:
     RVec<Float_t> GenPart_phi;
     RVec<Float_t> GenPart_pt;
     RVec<Int_t> GenPart_status;
+    RVec<Float_t> GenPart_vx;
+    RVec<Float_t> GenPart_vy;
+    RVec<Float_t> GenPart_vz;
     //Run3
     RVec<Short_t> GenPart_genPartIdxMother;
     RVec<UShort_t> GenPart_statusFlags;

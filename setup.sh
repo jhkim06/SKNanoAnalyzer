@@ -90,7 +90,7 @@ elif [ $PACKAGE = "mamba" ]; then
     # micromamba shell hook should only be run once per session
     if [[ -z "$__MAMBA_SETUP_DONE" ]]; then
         unalias mamba 2>/dev/null
-        eval "$(micromamba shell hook -s zsh)"
+        eval "$(micromamba shell hook -s bash)"
         export __MAMBA_SETUP_DONE=1
     fi
     micromamba activate Nano

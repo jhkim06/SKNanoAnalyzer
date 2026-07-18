@@ -22,3 +22,4 @@
 #pragma link C++ class MeasTrigEff+;
 #pragma link C++ class MuonTnPProducer+;
 #pragma link C++ class HLTBranchCheck+;
+#pragma link C++ class LLPMuonSystemAcceptance+;

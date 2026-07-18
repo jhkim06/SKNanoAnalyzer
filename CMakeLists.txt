@@ -29,6 +29,8 @@ add_subdirectory(Analyzers)
 
 # Fetch external dependencies
 include(FetchContent)
+set(YAML_CPP_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
+set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 FetchContent_Declare(
     yaml-cpp
     GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
@@ -49,5 +51,4 @@ FetchContent_MakeAvailable(yaml-cpp json)
 set(CMAKE_CXX_STANDARD ${ROOT_CXX_STANDARD})
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
 
