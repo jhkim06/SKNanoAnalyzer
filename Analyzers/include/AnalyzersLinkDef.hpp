@@ -23,3 +23,4 @@
 #pragma link C++ class MuonTnPProducer+;
 #pragma link C++ class HLTBranchCheck+;
 #pragma link C++ class LLPMuonSystemAcceptance+;
+#pragma link C++ class PhotonTiming+;
